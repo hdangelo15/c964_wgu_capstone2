@@ -4,7 +4,7 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn import linear_model
+import sklearn as sk
 
 # header information
 st.title('Heart Disease Risk Calculator')
@@ -105,7 +105,7 @@ user_pop_nonsmokers = disease_data[(disease_data['AgeCategory'] == user_age) & (
 # create logistic regression predictions
 user_x = user_pop['BMI'].values.reshape(-1, 1)
 user_y = user_pop['HeartDisease'].values
-user_logr = linear_model.LogisticRegression()
+user_logr = sk.linear_model.LogisticRegression()
 user_logr.fit(user_x, user_y)
 
 
